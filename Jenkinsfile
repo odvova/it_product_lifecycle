@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/ТВОЄ_ІМ’Я/labs_git.git'
+                git git 'https://github.com/odvova/it_product_lifecycle.git'
             }
         }
 
