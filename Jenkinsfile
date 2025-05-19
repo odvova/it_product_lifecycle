@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/odvova/it_product_lifecycle.git'
+                git git 'https://github.com/odvova/it_product_lifecycle.git'
             }
         }
 
@@ -23,7 +23,8 @@ pipeline {
         stage('Delivery') {
             steps {
                 bat '''
-                if not exist "%USERPROFILE%\\cargo" mkdir "%USERPROFILE%\\cargo"
+                if exist "%USERPROFILE%\\cargo" rd /s /q "%USERPROFILE%\\cargo"
+                mkdir "%USERPROFILE%\\cargo"
                 xcopy /E /I /Y * "%USERPROFILE%\\cargo\\"
                 '''
             }
